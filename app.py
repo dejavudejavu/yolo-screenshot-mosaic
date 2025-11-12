@@ -111,6 +111,12 @@ def process_image():
         return jsonify({'error': f'服务器错误: {str(e)}'}), 500
 
 
+@app.route('/', methods=['GET'])
+def index():
+    """返回首页"""
+    return send_file('index.html', mimetype='text/html')
+
+
 @app.route('/api/health', methods=['GET'])
 def health():
     """健康检查接口"""
